@@ -9,7 +9,7 @@
 
 
 <!-- PROJECT SHIELDS -->
-[![Release][release-badge]][release]
+[![Contributors][contributors-badge]][contributors]
 [![Licence][licence-badge]][licence]
 [![LinkedIn][linkedin-badge]][linkedin]
 
@@ -82,87 +82,42 @@ Memory Lane is the final project created by members of the ItJustWorks team for 
 
 
 
-<!-- FEATURES -->
-## Features
+<!-- RUN -->
+## Run
 
-### Questions Creation
-
-To modify the quiz, the user needs to provide an image, a video, and five questions for each question set.
-
-<p align="center">
-<img src="readme/question_sets_list.jpg" alt="Quesiton Sets List" width="200">
-</p>
-
-#### Audio Recorder
-
-Users can upload an audio file from their mobile phone or record it with an in-app audio recorder.
-
-<p align="center">
-<img src="readme/audio_option.jpg" alt="Audio Options" width="200">
-</p>
-
-
-
-<!-- INSTALL -->
-## Install
-
-Taibun can be installed from [pypi][pypi]
+Open the notebook using your choice software in a terminal or command window by navigating to the top-level project directory, `plane-segmenter`. For example, if the software is Jupyter Notebook:
 
 ```bash
-$ pip install taibun
+jupyter notebook segmenter.ipynb
 ```
 
 
 
-<!-- USAGE -->
-## Usage
+<!-- FUNCTIONAL AREAS -->
+## Functional Areas
 
-### Converter
+### Object Detection
 
-`Converter` class transliterates the Chinese characters to the chosen transliteration system with parameters specified by the developer. Works for both Traditional and Simplified characters.
+An object detection model is built to identify planes in high-resolution aerial images using the modified iSAID dataset. The Detectron2 framework is employed to implement and train a Faster R-CNN model with a ResNet-101 backbone. Key hyperparameters are adjusted to enhance performance, and the model's effectiveness is assessed using the Average Precision (AP) metric. This approach sets the stage for improving detection capabilities in the following stages of the project.
 
-```python
-# constructor
-c = Converter(system, dialect, format, delimiter, sandhi, punctuation)
+<p align="center">
+<img src="readme/overview.jpg" alt="Overview" height="450">
+</p>
 
-# transliterate Chinese characters
-c.get(input)
+### Semantic Segmentation
 
-# convert Simplified Chinese characters to Traditional Chinese Characters
-c.to_traditional(input)
-```
+A deep neural network is developed for semantic segmentation to identify planes in images. Segmentation masks are extracted and processed, with images and masks resized to a consistent size. The model uses an encoder-decoder architecture, where the encoder captures image features and the decoder generates the segmentation masks. Enhancements include adding layers to both the encoder and decoder, and incorporating skip connections to retain spatial information. The training employs Binary Cross-Entropy with logits as the loss function and Stochastic Gradient Descent (SGD) for optimization. Performance is evaluated using the Intersection-over-Union (IoU) metric.
 
-#### System
-
-`system` String - system of transliteration.
-
-* `Tailo` (default) - [Tâi-uân Lô-má-jī Phing-im Hong-àn][tailo-wiki]
-* `POJ` - [Pe̍h-ōe-jī][poj-wiki]
-
-| text | Tailo   | POJ     |
-| ---- | ------- | ------- |
-| 臺灣 | Tâi-uân | Tâi-oân |
-
-
-
-<!-- EXAMPLE -->
-## Example
-
-```python
-from taibun import Converter, Tokeniser
-
-# System
-c = Converter() # Tailo system default
-c.get('先生講，學生恬恬聽。')
->> Sian-sinn kóng, ha̍k-sing tiām-tiām thiann.
-```
+<p align="center">
+<img src="readme/matches.jpg" alt="Matches" height="450">
+</p>
 
 
 
 <!-- DATA -->
 ## Data
 
-- [iSAID: A Large-scale Dataset for Instance Segmentation in Aerial Images][isaid]
+This dataset is a modified version of the [iSAID: A Large-scale Dataset for Instance Segmentation in Aerial Images](isaid), consisting of 198 training images and 72 test images, all from the Plane category.
 
 
 
@@ -175,18 +130,19 @@ Because Plane Segmenter is MIT-licensed, any developer can essentially do whatev
 
 <!-- MARKDOWN LINKS -->
 <!-- Badges and their links -->
-[release-badge]: https://img.shields.io/github/v/release/andreihar/plane-segmenter?color=38618c&style=for-the-badge
-[release]: https://github.com/andreihar/plane-segmenter/releases
-[licence-badge]: https://img.shields.io/github/license/andreihar/taibun.svg?color=000000&style=for-the-badge
+[contributors-badge]: https://img.shields.io/badge/Contributors-1-44cc11?style=for-the-badge
+[contributors]: #contributors
+[licence-badge]: https://img.shields.io/github/license/andreihar/plane-segmenter.svg?color=000000&style=for-the-badge
 [licence]: LICENSE
 [linkedin-badge]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
-[linkedin]: https://www.linkedin.com/in/andrei-harbachov/
+[linkedin]: https://www.linkedin.com/in/andreihar/
 [detectron-badge]: https://img.shields.io/badge/Detectron2-5173F1?style=for-the-badge&logo=probot&logoColor=ffffff
 [detectron]: https://ai.meta.com/tools/detectron2/
 
 <!-- Technical links -->
 [bug]: https://github.com/andreihar/plane-segmenter/issues
+[isaid]: https://captain-whu.github.io/iSAID/
 
 <!-- Socials -->
-[andrei-linkedin]: https://www.linkedin.com/in/andrei-harbachov/
+[andrei-linkedin]: https://www.linkedin.com/in/andreihar/
 [andrei-github]: https://github.com/andreihar
