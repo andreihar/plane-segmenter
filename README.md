@@ -18,7 +18,6 @@
 It has methods that allow to customise transliteration and retrieve any necessary information about Taiwanese Hokkien pronunciation.<br />
 Includes word tokeniser for Taiwanese Hokkien.
 
-[Report Bug][bug] •
 
 
 </div>
@@ -39,32 +38,18 @@ Includes word tokeniser for Taiwanese Hokkien.
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#run">Run</a></li>
     <li>
-      <a href="#features">Features</a>
+      <a href="#functional-areas">Functional Areas</a>
       <ul>
-        <li>
-          <a href="#questions-creation">Questions Creation</a>
-          <ul>
-            <li><a href="#audio-recorder">Audio Recorder</a></li>
-          </ul>
-        </li>
+        <li><a href="#object-detection">Object Detection</a></li>
+        <li><a href="#semantic-segmentation">Semantic Segmentation</a></li>
+        <li><a href="#instance-segmentation">Instance Segmentation</a></li>
+        <li><a href="#mask-r-cnn">Mask R-CNN</a></li>
       </ul>
     </li>
-    <li><a href="#install">Run</a></li>
-    <li>
-      <a href="#usage">Usage</a>
-      <ul>
-        <li>
-          <a href="#converter">Converter</a>
-          <ul>
-            <li><a href="#system">System</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#example">Example</a></li>
     <li><a href="#data">Data</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li><a href="#contributors">Contributors</a></li>
     <li><a href="#licence">Licence</a></li>
   </ol>
 </details>
@@ -112,12 +97,35 @@ A deep neural network is developed for semantic segmentation to identify planes 
 <img src="readme/matches.jpg" alt="Matches" height="450">
 </p>
 
+### Instance Segmentation
+
+Instance segmentation is implemented by integrating a trained object detection model with a segmentation module to generate detailed masks for each detected instance. The approach involves using the model's predictions in place of ground-truth bounding boxes from the previous stage and processing each instance to create accurate segmentation masks. The model relies on an encoder-decoder architecture for effective feature extraction and mask reconstruction. Performance is evaluated using the Intersection-over-Union (IoU) metric, focusing on optimizing model performance through careful architectural design and hyperparameter tuning.
+
+<p align="center">
+<img src="readme/matches.jpg" alt="Matches" height="450">
+</p>
+
+### Mask R-CNN
+
+In this part, we employ Mask R-CNN mode using a ResNet-50 backbone with a Feature Pyramid Network (FPN) to perform instance segmentation and compare its results with those obtained in the Instance Segmentation part. The model is fine-tuned with similar techniques to optimize performance. We visualize and evaluate the results, focusing on the advantages and drawbacks of the Mask R-CNN approach compared to the method used previously. Additionally, we compare the detection results with those from the Object Detection part to assess improvements and differences, providing insights into which method performs better and why.
+
+<p align="center">
+<img src="readme/matches.jpg" alt="Matches" height="450">
+</p>
+
 
 
 <!-- DATA -->
 ## Data
 
 This dataset is a modified version of the [iSAID: A Large-scale Dataset for Instance Segmentation in Aerial Images](isaid), consisting of 198 training images and 72 test images, all from the Plane category.
+
+
+
+<!-- CONTRIBUTION -->
+## Contributors
+
+- Andrei Harbachov ([Github][andrei-github] · [LinkedIn][andrei-linkedin])
 
 
 
@@ -140,7 +148,6 @@ Because Plane Segmenter is MIT-licensed, any developer can essentially do whatev
 [detectron]: https://ai.meta.com/tools/detectron2/
 
 <!-- Technical links -->
-[bug]: https://github.com/andreihar/plane-segmenter/issues
 [isaid]: https://captain-whu.github.io/iSAID/
 
 <!-- Socials -->
