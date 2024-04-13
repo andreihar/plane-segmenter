@@ -86,7 +86,7 @@ jupyter notebook segmenter.ipynb
 An object detection model is built to identify planes in high-resolution aerial images using the modified iSAID dataset. The Detectron2 framework is employed to implement and train a Faster R-CNN model with a ResNet-101 backbone. Key hyperparameters are adjusted to enhance performance, and the model's effectiveness is assessed using the Average Precision (AP) metric. This approach sets the stage for improving detection capabilities in the following stages of the project.
 
 <p align="center">
-<img src="readme/overview.jpg" alt="Overview" height="450">
+<img src="readme/object_detection.jpg" alt="Object Detection" height="450">
 </p>
 
 ### Semantic Segmentation
@@ -94,7 +94,8 @@ An object detection model is built to identify planes in high-resolution aerial 
 A deep neural network is developed for semantic segmentation to identify planes in images. Segmentation masks are extracted and processed, with images and masks resized to a consistent size. The model uses an encoder-decoder architecture, where the encoder captures image features and the decoder generates the segmentation masks. Enhancements include adding layers to both the encoder and decoder, and incorporating skip connections to retain spatial information. The training employs Binary Cross-Entropy with logits as the loss function and Stochastic Gradient Descent (SGD) for optimization. Performance is evaluated using the Intersection-over-Union (IoU) metric.
 
 <p align="center">
-<img src="readme/matches.jpg" alt="Matches" height="450">
+<img src="readme/semantic_segmentation_1.jpg" alt="Semantic Segmentation Image" height="200">
+<img src="readme/semantic_segmentation_2.jpg" alt="Semantic Segmentation Mask" height="200">
 </p>
 
 ### Instance Segmentation
@@ -102,7 +103,8 @@ A deep neural network is developed for semantic segmentation to identify planes 
 Instance segmentation is implemented by integrating a trained object detection model with a segmentation module to generate detailed masks for each detected instance. The approach involves using the model's predictions in place of ground-truth bounding boxes from the previous stage and processing each instance to create accurate segmentation masks. The model relies on an encoder-decoder architecture for effective feature extraction and mask reconstruction. Performance is evaluated using the Intersection-over-Union (IoU) metric, focusing on optimizing model performance through careful architectural design and hyperparameter tuning.
 
 <p align="center">
-<img src="readme/matches.jpg" alt="Matches" height="450">
+<img src="readme/instance_segmentation_1.jpg" alt="Instance Segmentation Image" height="450">
+<img src="readme/instance_segmentation_2.jpg" alt="Instance Segmentation Mask" height="450">
 </p>
 
 ### Mask R-CNN
@@ -110,7 +112,7 @@ Instance segmentation is implemented by integrating a trained object detection m
 In this part, we employ Mask R-CNN mode using a ResNet-50 backbone with a Feature Pyramid Network (FPN) to perform instance segmentation and compare its results with those obtained in the Instance Segmentation part. The model is fine-tuned with similar techniques to optimize performance. We visualize and evaluate the results, focusing on the advantages and drawbacks of the Mask R-CNN approach compared to the method used previously. Additionally, we compare the detection results with those from the Object Detection part to assess improvements and differences, providing insights into which method performs better and why.
 
 <p align="center">
-<img src="readme/matches.jpg" alt="Matches" height="450">
+<img src="readme/mask_r-cnn.jpg" alt="Mask R-CNN" height="450">
 </p>
 
 
