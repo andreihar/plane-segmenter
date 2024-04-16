@@ -13,10 +13,9 @@
 [![Licence][licence-badge]][licence]
 [![LinkedIn][linkedin-badge]][linkedin]
 
-**Taiwanese Hokkien transliterator from Chinese characters**
+**Detection and Segmentation of Planes**
 
-It has methods that allow to customise transliteration and retrieve any necessary information about Taiwanese Hokkien pronunciation.<br />
-Includes word tokeniser for Taiwanese Hokkien.
+Models for detecting and segmenting planes in aerial images, using techniques like Faster R-CNN and Mask R-CNN for enhanced performance and accuracy.
 
 
 
@@ -59,7 +58,11 @@ Includes word tokeniser for Taiwanese Hokkien.
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Memory Lane is the final project created by members of the ItJustWorks team for the course in Introduction to Software Engineering in the Summer semester of 2022. The theme of the course was agile software development in three sprints of the Android mobile application that should enhance the lives of people diagnosed with dementia, particularly the elderly.
+Plane Segmenter is the assignment project created for the course in Computer Vision in the Spring semester of 2023. The project focuses on applying deep learning techniques to solve key tasks in computer vision: object detection, semantic segmentation, and instance segmentation.
+
+The objective of this assignment was to design and train advanced deep convolutional neural networks with PyTorch and Detectron2 to accurately detect and segment planes in high-resolution aerial images. The model started with a baseline configuration and iteratively improved through hyperparameter tuning and architectural adjustments.
+
+By addressing these challenges, Plane Segmenter demonstrates practical applications of state-of-the-art computer vision techniques and provides insights into the effectiveness of different deep learning methods and configurations.
 
 ### Built With
 
